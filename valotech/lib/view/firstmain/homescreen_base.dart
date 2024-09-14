@@ -3,7 +3,6 @@ import 'package:valotech/constant/app_color.dart';
 
 import 'package:valotech/view/option/ability/abillity_view.dart';
 import 'package:valotech/view/option/atkdf/atkdf_view.dart';
-import 'package:valotech/view/option/character/character_view.dart';
 import 'package:valotech/view/option/map/map_view.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       physics: const ClampingScrollPhysics(),
       children: <Widget>[
         MapOption(),
-        CharacterOption(),
+        //CharacterOption(),
         AtkDfOption(),
         AbillityOption(),
         SizedBox(

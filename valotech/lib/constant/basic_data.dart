@@ -1,16 +1,35 @@
+//アビス消してます！！！
 class MapName {
-  static List<String> mapName = [
-    'アイスボックス',
+  static List<String> mapJpnName = [
     'アセント',
-    'アビス',
-    'サンセット',
     'スプリット',
-    'バインド',
-    'パール',
-    'フラクチャー',
-    'ブリーズ',
     'ヘイブン',
+    'バインド',
+    'アイスボックス',
+    'ブリーズ',
+    'フラクチャー',
+    'パール',
     'ロータス',
+    'サンセット',
+    //'アビス',
+  ];
+  static List<String> mapEngName = [
+    'ASCENT',
+    'SPLIT',
+    'HAVEN',
+    'BIND',
+    'ICEBOX',
+    'BREEZE',
+    'FRACTURE',
+    'PEARL',
+    'LOTUS',
+    'SUNSET',
+    //'ABYSS',
+  ];
+
+  static List<JpnEngList> mapNameList = [
+    for (int i = 0; i < mapJpnName.length; i++)
+      JpnEngList(mapJpnName[i], mapEngName[i]),
   ];
 }
 
@@ -22,47 +41,74 @@ class CharacterRole {
     'コントローラー',
     'センチネル',
   ];
+  static List<String> charaRoleEng = [
+    'duelist',
+    'initiator',
+    'controller',
+    'sentinel',
+  ];
 }
 
 class CharacterName {
   //キャラ名
-  static List<String> duelistName = [
-    'ジェット',
-    'ヨル',
-    'レイズ',
-  ];
-  static List<String> initiatorName = [
-    'KAY/O',
-    'ゲッコー',
-    'スカイ',
-    'ソーヴァ',
-    'フェイド',
-    'ブリーチ',
-  ];
-  static List<String> controllerName = [
-    'ヴァイパー',
-    'オーメン',
-    'クローブ',
-    'ハーバー',
+  static List<String> charaJpnName = [
     'ブリムストーン',
-  ];
-  static List<String> sentinelName = [
-    'キルジョイ',
-    'サイファー',
+    'フェニックス',
     'セージ',
+    'ソーヴァ',
+    'ヴァイパー',
+    'サイファー',
+    'レイナ',
+    'キルジョイ',
+    'ブリーチ',
+    'オーメン',
+    'ジェット',
+    'レイズ',
+    'スカイ',
+    'ヨル',
+    'アストラ',
+    'KAY/O',
     'チェンバー',
+    'ネオン',
+    'フェイド',
+    'ハーバー',
+    'ゲッコー',
     'デッドロック',
+    'アイソ',
+    'クローブ',
+    'ヴァイス',
   ];
-}
-
-class CharaRoleList {
-  //ロール名とキャラ名の結びつき
-  static Map<String, List<String>> charaRoleList = {
-    CharacterRole.characterRole[0]: CharacterName.duelistName,
-    CharacterRole.characterRole[1]: CharacterName.initiatorName,
-    CharacterRole.characterRole[2]: CharacterName.controllerName,
-    CharacterRole.characterRole[3]: CharacterName.sentinelName,
-  };
+  static List<String> charaEngName = [
+    'Brimstone',
+    'Phoenix',
+    'Sage',
+    'Sova',
+    'Viper',
+    'Cypher',
+    'Reyna',
+    'Killjoy',
+    'Breach',
+    'Omen',
+    'Jett',
+    'Raze',
+    'Skye',
+    'Yoru',
+    'Astra',
+    'KAYO',
+    'Chamber',
+    'Neon',
+    'Fade',
+    'Harbor',
+    'Gekko',
+    'Deadlock',
+    'Iso',
+    'Clove',
+    'Vyse',
+  ];
+  static List<JpnEngList> characterName = [
+    for (int i = 0; i < charaJpnName.length; i++)
+      JpnEngList(charaJpnName[i], charaEngName[i]),
+  ];
 }
 
 class AtkDfName {
@@ -70,4 +116,10 @@ class AtkDfName {
     'アタッカー',
     'ディフェンダー',
   ];
+}
+
+class JpnEngList {
+  JpnEngList(this.jpn, this.eng);
+  String jpn;
+  String eng;
 }

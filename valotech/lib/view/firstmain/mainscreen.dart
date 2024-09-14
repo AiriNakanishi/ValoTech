@@ -24,6 +24,9 @@ class _MainScreenState extends State<MainScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(), //定点画面
     Text('Wall Bang'), //壁抜き画面
+    Text('sound'),
+    Text('time'),
+    Text('setting'),
   ];
 
   @override
@@ -34,18 +37,32 @@ class _MainScreenState extends State<MainScreen> {
         title: const Text('ValoTech'),
       ),
       extendBodyBehindAppBar: true,
+      //backgroundColor: AppColor.brand.secondary,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex), // 選択された画面を表示
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Lineup',
+            label: 'ability',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.bolt),
-            label: 'Wall Bang',
+            label: 'wallbang',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.music_note),
+            label: 'sound',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.hourglass_empty),
+            label: 'time',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'setting',
           ),
         ],
         currentIndex: _selectedIndex,

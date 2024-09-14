@@ -5,98 +5,93 @@ import 'package:valotech/constant/basic_data.dart';
 
 class CharacterOption extends StatefulWidget {
   //Home画面でのMapの表示
-  const CharacterOption({super.key});
+  final JpnEngList mapSelect;
+
+  const CharacterOption({super.key, required this.mapSelect});
 
   @override
   State<CharacterOption> createState() => _CharacterOptionState();
 }
 
 class _CharacterOptionState extends State<CharacterOption> {
+  late JpnEngList mapName;
+  static JpnEngList characterSelect = JpnEngList('', '');
+
   Map<String, bool> charaRolePress = {
     for (String i in CharacterRole.characterRole) i: false
   };
 
-  Map<String, bool> duelistPress = {
-    for (String i in CharacterName.duelistName) i: false
-  };
-  Map<String, bool> initiatorPress = {
-    for (String i in CharacterName.initiatorName) i: false
-  };
-  Map<String, bool> controllerPress = {
-    for (String i in CharacterName.controllerName) i: false
-  };
-  Map<String, bool> sentinelPress = {
-    for (String i in CharacterName.sentinelName) i: false
+  Map<JpnEngList, bool> charalistPress = {
+    for (JpnEngList i in CharacterName.characterName) i: false
   };
 
   @override
+  void initState() {
+    super.initState();
+    // 受け取ったデータを状態を管理する変数に格納
+    mapName = widget.mapSelect;
+    debugPrint('mapSelect: ${mapName.jpn}'); // デバッグ用
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text('Character'),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisSize: MainAxisSize.min, //Rowが子供たちに必要なだけの幅を取るように指示する
-            children: <Widget>[
-              for (String roleKey in charaRolePress.keys)
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      for (var roleEntry in charaRolePress.entries) {
-                        if (roleKey != roleEntry.key) {
-                          charaRolePress[roleEntry.key] = false;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+            mapName.jpn.isNotEmpty ? '[${mapName.jpn}]' : '[No Map Selected]'),
+        //title: Text(mapName.jpn),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Wrap(
+              children: [
+                for (JpnEngList key in charalistPress.keys)
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        for (var entry in charalistPress.entries) {
+                          if (key != entry.key) {
+                            charalistPress[entry.key] = false;
+                          }
                         }
-                      }
-                      charaRolePress[roleKey] = !charaRolePress[roleKey]!;
-                    });
-                  },
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: AppColor.brand.secondary
-                          .withAlpha(charaRolePress[roleKey]! ? 255 : 100),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Text(
-                      roleKey,
+                        charalistPress[key] = !charalistPress[key]!;
+                        if (charalistPress[key] == true) {
+                          characterSelect = key;
+                          debugPrint(characterSelect.jpn);
+                        }
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                              'assets/images/character/${key.eng}.png'),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                            Colors.white
+                                .withOpacity(charalistPress[key]! ? 0.5 : 0.1),
+                            BlendMode.srcATop,
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        key.jpn,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              // if (charaRolePress[roleKey])
-              //   {
-              //   for (String charaKey in charaRolePress.keys)
-              //     GestureDetector(
-              //       onTap: () {
-              //         setState(() {
-              //           for (var charaEntry in charaRolePress.entries) {
-              //             if (charaKey != charaEntry.key)
-              //               charaRolePress[charaEntry.key] = false;
-              //           }
-              //           charaRolePress[charaKey] = !charaRolePress[charaKey]!;
-              //         });
-              //       },
-              //       child: Container(
-              //         height: 100,
-              //         width: 100,
-              //         alignment: Alignment.center,
-              //         decoration: BoxDecoration(
-              //           color: AppColor.brand.secondary
-              //               .withAlpha(charaRolePress[charaKey]! ? 255 : 100),
-              //           shape: BoxShape.circle,
-              //         ),
-              //         child: Text(
-              //           charaKey,
-              //         ),
-              //       ),
-              //     ),
-              //   },
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
