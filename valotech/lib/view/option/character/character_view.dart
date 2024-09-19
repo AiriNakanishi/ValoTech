@@ -2,24 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:valotech/constant/app_color.dart';
 import 'package:valotech/constant/basic_data.dart';
+import 'package:valotech/view/option/ability/abillity_view.dart';
 
 class CharacterOption extends StatefulWidget {
   //Home画面でのMapの表示
+  final String lang;
   final JpnEngList mapSelect;
 
-  const CharacterOption({super.key, required this.mapSelect});
+  const CharacterOption(
+      {super.key, required this.lang, required this.mapSelect});
 
   @override
   State<CharacterOption> createState() => _CharacterOptionState();
 }
 
 class _CharacterOptionState extends State<CharacterOption> {
-  late JpnEngList mapName;
+  late String lang;
+  late JpnEngList mapSelect;
   static JpnEngList characterSelect = JpnEngList('', '');
-
-  Map<String, bool> charaRolePress = {
-    for (String i in CharacterRole.characterRole) i: false
-  };
 
   Map<JpnEngList, bool> charalistPress = {
     for (JpnEngList i in CharacterName.characterName) i: false
@@ -29,22 +29,34 @@ class _CharacterOptionState extends State<CharacterOption> {
   void initState() {
     super.initState();
     // 受け取ったデータを状態を管理する変数に格納
-    mapName = widget.mapSelect;
-    debugPrint('mapSelect: ${mapName.jpn}'); // デバッグ用
+    lang = widget.lang;
+    mapSelect = widget.mapSelect;
+    debugPrint('mapSelect: ${mapSelect.jpn}'); // デバッグ用
+  }
+
+  String getDisplayText(JpnEngList key) {
+    if (lang == 'jpn') {
+      return key.jpn;
+    } else {
+      return key.eng;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-            mapName.jpn.isNotEmpty ? '[${mapName.jpn}]' : '[No Map Selected]'),
+        centerTitle: false,
+        title: Text(mapSelect.jpn.isNotEmpty
+            ? 'Agent Select:[${getDisplayText(mapSelect)}]'
+            : 'Agent Select:[No Map Selected]'),
         //title: Text(mapName.jpn),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Wrap(
+      backgroundColor: AppColor.ui.background,
+      body: ListView(
+        children: [
+          Center(
+            child: Wrap(
               children: [
                 for (JpnEngList key in charalistPress.keys)
                   GestureDetector(
@@ -61,36 +73,50 @@ class _CharacterOptionState extends State<CharacterOption> {
                           debugPrint(characterSelect.jpn);
                         }
                       });
+                      if (characterSelect.jpn.isNotEmpty) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => AbilityOption(
+                              lang: lang,
+                              mapSelect: mapSelect,
+                              characterSelect: characterSelect,
+                            ),
+                          ),
+                        );
+                      } else {
+                        debugPrint("Error: mapSelect is empty");
+                      }
                     },
                     child: Container(
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
+                        border: Border.all(color: AppColor.text.blackMid),
                         image: DecorationImage(
                           image: AssetImage(
                               'assets/images/character/${key.eng}.png'),
                           fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                            Colors.white
-                                .withOpacity(charalistPress[key]! ? 0.5 : 0.1),
-                            BlendMode.srcATop,
-                          ),
+                          // colorFilter: ColorFilter.mode(
+                          //   Colors.white
+                          //       .withOpacity(charalistPress[key]! ? 0.5 : 0.1),
+                          //   BlendMode.srcATop,
+                          // ),
                         ),
                       ),
-                      child: Text(
-                        key.jpn,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      // child: Text(
+                      //   key.jpn,
+                      //   style: const TextStyle(
+                      //     fontSize: 20,
+                      //     fontWeight: FontWeight.bold,
+                      //     color: Colors.white,
+                      //   ),
+                      // ),
                     ),
                   ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
