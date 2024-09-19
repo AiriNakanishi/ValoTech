@@ -1,6 +1,6 @@
 # ValoTech
 
-Valorantをもっと楽しくするアプリ
+Valorantのアプリ
 
 ## Getting Started
 
