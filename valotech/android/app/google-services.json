@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "727092491854",
+    "project_id": "valotech-a3488",
+    "storage_bucket": "valotech-a3488.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727092491854:android:441e9fbe6d3c1173c4351f",
+        "android_client_info": {
+          "package_name": "com.example.valotech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyghSuJ6eAl16OnZdUBnMyaERIPbENeQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

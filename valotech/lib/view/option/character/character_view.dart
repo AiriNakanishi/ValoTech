@@ -46,10 +46,21 @@ class _CharacterOptionState extends State<CharacterOption> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColor.ui.background,
         centerTitle: false,
-        title: Text(mapSelect.jpn.isNotEmpty
-            ? 'Agent Select:[${getDisplayText(mapSelect)}]'
-            : 'Agent Select:[No Map Selected]'),
+        titleTextStyle: TextStyle(
+          color: AppColor.text.white,
+          fontSize: 20,
+        ),
+        iconTheme: IconThemeData(
+          color: AppColor.ui.white, // 戻るボタン（アイコン）の色を白に設定
+        ),
+        title: Text(
+          mapSelect.jpn.isNotEmpty
+              ? 'Agent Select:[${getDisplayText(mapSelect)}]'
+              : 'Agent Select:[No Map Selected]',
+          style: TextStyle(),
+        ),
         //title: Text(mapName.jpn),
       ),
       backgroundColor: AppColor.ui.background,

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBm-thBKG2ec8qN3AxtJlGUoQI_ZJrCTh8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>727092491854</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.valotech</string>
+	<key>PROJECT_ID</key>
+	<string>valotech-a3488</string>
+	<key>STORAGE_BUCKET</key>
+	<string>valotech-a3488.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:727092491854:ios:d4b32e94c47d4e09c4351f</string>
+</dict>
+</plist>
