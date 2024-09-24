@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
 
   //言語設定
   static String lang = 'jpn'; //日本語ver
-  //static String lang = 'eng';//英語ver
+  //static String lang = 'eng'; //英語ver
 
   // ナビゲーションバーのタップで表示する画面を選択するための関数
   // void _onItemTapped(int index) {
@@ -70,7 +70,7 @@ class _MainScreenState extends State<MainScreen> {
             // ラベル
             title: 'ability',
             // 選択時のColor
-            activeColorPrimary: Colors.red,
+            activeColorPrimary: AppColor.ui.themered,
             // 非選択時のColor
             inactiveColorPrimary: AppColor.ui.white,
             contentPadding: 0,
@@ -83,7 +83,7 @@ class _MainScreenState extends State<MainScreen> {
               Icons.bolt_outlined,
             ),
             title: 'wallbang',
-            activeColorPrimary: Colors.red,
+            activeColorPrimary: AppColor.ui.themered,
             inactiveColorPrimary: AppColor.ui.white,
             contentPadding: 0,
           ),
@@ -95,7 +95,7 @@ class _MainScreenState extends State<MainScreen> {
               Icons.music_note_outlined,
             ),
             title: 'sound',
-            activeColorPrimary: Colors.red,
+            activeColorPrimary: AppColor.ui.themered,
             inactiveColorPrimary: AppColor.ui.white,
             contentPadding: 0,
           ),
@@ -107,7 +107,7 @@ class _MainScreenState extends State<MainScreen> {
               Icons.hourglass_empty_outlined,
             ),
             title: 'time',
-            activeColorPrimary: Colors.red,
+            activeColorPrimary: AppColor.ui.themered,
             inactiveColorPrimary: AppColor.ui.white,
             contentPadding: 0,
           ),
@@ -119,7 +119,7 @@ class _MainScreenState extends State<MainScreen> {
               Icons.settings_outlined,
             ),
             title: 'setting',
-            activeColorPrimary: Colors.red,
+            activeColorPrimary: AppColor.ui.themered,
             inactiveColorPrimary: AppColor.ui.white,
             contentPadding: 0,
           ),

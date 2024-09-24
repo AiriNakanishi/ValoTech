@@ -102,7 +102,8 @@ class _CharacterOptionState extends State<CharacterOption> {
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
-                        border: Border.all(color: AppColor.text.blackMid),
+                        border:
+                            Border.all(color: AppColor.ui.themered, width: 1.5),
                         image: DecorationImage(
                           image: AssetImage(
                               'assets/images/character/${key.eng}.png'),

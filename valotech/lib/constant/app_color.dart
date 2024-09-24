@@ -9,7 +9,8 @@ class AppColor {
 
 class _Brand {
   final Color primary = const Color(0xFF202124);
-  final Color secondary = const Color(0xFFFB2C43);
+  //final Color secondary = const Color(0xFFFB2C43);
+  final Color secondary = const Color(0xFFEC5B55);
 }
 
 class _Text {
@@ -20,10 +21,12 @@ class _Text {
   final Color white = const Color(0xFFFFFFFF);
   //final Color link = const Color(0xFF6699ff);
   //final Color darkgray = const Color(0xFF404040);
+  final Color themered = const Color(0xFFEC5B55);
 }
 
 class _Ui {
   final Color white = const Color(0xFFFFFFFF);
   final Color black = const Color(0xFF000000);
   final Color background = const Color(0xFF202124);
+  final Color themered = const Color(0xFFEC5B55);
 }

@@ -95,7 +95,8 @@ class _MapOptionState extends State<MapOption> {
                           child: Container(
                             alignment: Alignment.topLeft,
                             decoration: BoxDecoration(
-                              border: Border.all(color: AppColor.text.blackMid),
+                              border: Border.all(
+                                  color: AppColor.ui.themered, width: 1.5),
                               image: DecorationImage(
                                 image: AssetImage(
                                     'assets/images/map/${key.eng}.png'),
@@ -108,7 +109,7 @@ class _MapOptionState extends State<MapOption> {
                             ),
                             child: BorderedText(
                               strokeWidth: 4,
-                              strokeColor: Colors.black,
+                              strokeColor: AppColor.text.blackMid,
                               child: Text(
                                 getDisplayText(key),
                                 style: TextStyle(
