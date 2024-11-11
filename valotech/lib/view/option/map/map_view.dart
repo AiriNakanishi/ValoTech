@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:valotech/constant/app_color.dart';
 import 'package:valotech/constant/basic_data.dart';
 import 'package:bordered_text/bordered_text.dart';
+import 'package:valotech/model/option_image.dart';
 import 'package:valotech/view/option/character/character_view.dart';
 
 class MapOption extends StatefulWidget {
@@ -46,6 +45,7 @@ class _MapOptionState extends State<MapOption> {
       color: AppColor.ui.background,
       child: CustomScrollView(
         slivers: [
+          
           SliverAppBar(
             snap: true,
             floating: true,

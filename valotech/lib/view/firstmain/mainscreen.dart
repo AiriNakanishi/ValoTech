@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:valotech/constant/app_color.dart';
 import 'package:valotech/view/firstmain/homescreen_base.dart';
+import 'package:valotech/view/test/image_test.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -30,7 +31,15 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(
       lang: lang,
     ), //定点画面
-    Text('Wall Bang'), //壁抜き画面
+    Column(
+      children: [
+        SizedBox(
+          height: 100,
+        ),
+        Text('Wall Bang'),
+        ImageTest(),
+      ],
+    ), //壁抜き画面
     Text('sound'),
     Text('time'),
     Text('setting'),
